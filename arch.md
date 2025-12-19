@@ -92,6 +92,10 @@ locale-gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 echo "KEYMAP=us" > /etc/vconsole.conf
 
+##if face err locale change in
+sudo nvim /etc/locale.gen  # uncomment en_US.UTF-8 UTF-8
+
+
 #hostname
 echo "arch-btw" > /etc/hostname # Choose your hostname
 
