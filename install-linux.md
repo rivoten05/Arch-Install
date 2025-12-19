@@ -1,13 +1,10 @@
 # Arch Linux Installation Guide (UEFI)
-
 This guide covers the installation of Arch Linux on a UEFI system.
-
----
 
 ## 1. Pre-Installation
 ### Verify Boot Mode
-Confirm you are in UEFI mode (should return `64`).
-```bash
+Confirm you are in UEFI mode (should return 64)
+
 cat /sys/firmware/efi/fw_platform_size
 
 ## connect to internet 
@@ -106,11 +103,15 @@ passwd rio
 # Install sudo & neovim
 pacman -S sudo neovim
 
+#give user root access 
+sed -i 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
+
+
 # install core packages
 pacman -S grub efibootmgr networkmanager bluez bluez-utils pipewire pipewire-pulse mesa ly git
 
 #change btrfs
-nvim /etc/mkinitcpio.conf
+sudo sed -i 's/^MODULES=()$/MODULES=(btrfs)/' /etc/mkinitcpio.conf
 # Change: MODULES=()  to  MODULES=(btrfs)
 
 # Regenerate initramfs image
@@ -124,13 +125,13 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 systemctl enable NetworkManager
 systemctl enable bluetooth
-esystemctl enable fstrim.timer
+systemctl enable fstrim.timer
 
 # 1. Disable the standard getty on TTY2
-sudo systemctl disable getty@tty2.service
+sudo systemctl disable ly@tty2.servic.service
 
 # 2. Enable Ly on TTY2
-sudo systemctl enable ly@tty2.servic
+sudo systemctl enable ly@tty2.service
 
 #3. Graphical on target
 sudo systemctl set-default graphical.target
@@ -139,6 +140,27 @@ sudo systemctl set-default graphical.target
 exit
 umount -R /mnt
 reboot
+
+# connect to network using nmcli
+nmcli device
+nmcli device wifi list
+nmcli device wifi connect "SSID_NAME" password "PASSWORD"
+nmcli connection show
+nmcli connection up "Wired connection 1"
+
+## if network not up
+sudo systemctl status NetworkManager
+
+## ssh service
+sudo yay -S openssh
+sudo systemctl start sshd
+sudo systemctl enable sshd
+sudo systemctl status sshd
+
+## if firewall is set
+sudo ufw allow ssh
+# OR
+sudo ufw allow 22/tcp
 
 ## Post installation 
 # Install yay
@@ -153,10 +175,6 @@ makepkg -si
 
 # 3. Test it
 yay --version
-
-## Fastest mirror
-yay -Syy reflector
-reflector --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 
 ## Backup with timeshift
 yay -S timeshift
@@ -173,4 +191,5 @@ sudo timeshift --delete-all
 
 ## Install Your Desktop Enviroment Like Qtile, Cosmic, Hyprland, oxwm, xfce4, Gnome etc..
 sudo yay -S qtile xorg-server
-sudo yay -S cosmic 
+sudo yay -S cosmic
+
