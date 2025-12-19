@@ -141,6 +141,16 @@ exit
 umount -R /mnt
 reboot
 
+# connect to network using nmcli
+nmcli device
+nmcli device wifi list
+nmcli device wifi connect "SSID_NAME" password "PASSWORD"
+nmcli connection show
+nmcli connection up "Wired connection 1"
+
+## if network not up
+sudo systemctl status NetworkManager
+
 ## ssh service
 sudo yay -S openssh
 sudo systemctl start sshd
