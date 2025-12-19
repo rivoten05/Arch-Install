@@ -193,3 +193,16 @@ sudo timeshift --delete-all
 sudo yay -S qtile xorg-server
 sudo yay -S cosmic
 
+## Install oxwm
+yay -S oxwm-git
+
+## if you have nvidia gpu
+yay -S nvidia-390xx-dkms nvidia-390xx-utils nvidia-390xx-settings
+
+sudo pacman -S xorg-server xorg-xinit xorg-xsetroot
+
+cp /etc/X11/xinit/xinitrc ~/.xinitrc
+
+nano ~/.xinitrc  #
+** exec oxwm
+startx
