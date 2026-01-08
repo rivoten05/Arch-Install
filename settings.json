@@ -2,7 +2,7 @@
   "window.zoomLevel": 1,
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "Gruvbox Light Soft",
+  "workbench.colorTheme": "Omni Owl",
   "workbench.tree.renderIndentGuides": "none",
   "workbench.statusBar.visible": false,
   "workbench.editor.showTabs": "none",
@@ -64,8 +64,8 @@
   "editor.renderWhitespace": "none",
   "editor.renderLineHighlight": "none",
   "editor.matchBrackets": "never",
-  // "editor.lightbulb.enabled": "off",
-  // "editor.hover.enabled": false,
+  "editor.lightbulb.enabled": "off",
+  "editor.hover.enabled": "off",
   "editor.scrollbar.horizontal": "hidden",
   "editor.scrollbar.vertical": "hidden",
   "editor.overviewRulerBorder": false,
@@ -83,7 +83,7 @@
   "files.insertFinalNewline": true,
   "extensions.ignoreRecommendations": true,
   "files.autoSave": "afterDelay",
-  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+  "terminal.integrated.fontFamily": "Maple Mono NF",
   "terminal.integrated.lineHeight": 1.5,
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.env.osx": {
@@ -93,7 +93,7 @@
   "apc.electron": {
     "titleBarStyle": "hiddenInset"
   },
-  "apc.font.family": "JetBrainsMono Nerd Font",
+  "apc.font.family": "Maple Mono NF",
   "apc.listRow": {
     "lists": [
       "explorer-folders-view",
@@ -119,12 +119,10 @@
     ".monaco-scrollable-element > .shadow.top": "display: none !important",
     ".monaco-split-view2 > .monaco-scrollable-element > .split-view-container": "background: #191521 !important",
   },
-  "animations.Install-Method": "Apc Customize UI++",
   "apc.imports": [
     "file:///c:/Users/parde/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
   ],
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "Dart-Code.dart-code",
   "[dart]": {
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
@@ -132,4 +130,8 @@
     "editor.tabCompletion": "onlySnippets",
     "editor.wordBasedSuggestions": "off"
   },
+  "chat.commandCenter.enabled": false,
+  "workbench.navigationControl.enabled": false,
+  "workbench.editor.editorActionsLocation": "hidden",
+  "window.commandCenter": false,
 }
