@@ -1,0 +1,28 @@
+# ~/.config/yazi/theme.toml
+
+[manager]
+cwd = { fg = "#458588" } # Blue
+
+# Hovered item
+hovered         = { fg = "#3c3836", bg = "#ebdbb2" }
+# Selected items
+preview_hovered = { underline = true }
+
+[status]
+separator_open  = ""
+separator_close = ""
+
+[status.mode]
+normal = { bg = "#458588", fg = "#fbf1c7", bold = true }
+select = { bg = "#98971a", fg = "#fbf1c7", bold = true }
+unset  = { bg = "#b16286", fg = "#fbf1c7", bold = true }
+
+[filetype]
+rules = [
+    { mime = "image/*", fg = "#b16286" }, # Purple
+    { mime = "video/*", fg = "#b16286" },
+    { mime = "audio/*", fg = "#b16286" },
+    { mime = "text/*",  fg = "#3c3836" },
+    { name = "*.zip",   fg = "#d79921" }, # Yellow
+    { name = "*.tar",   fg = "#d79921" },
+]
